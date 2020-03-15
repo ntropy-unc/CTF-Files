@@ -1,0 +1,1 @@
+With a YARA rule, you can check if a guessed string is present in a file. This is attack is like a blind SQL injection.
