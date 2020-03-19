@@ -1,0 +1,8 @@
+Problem: discover x from a^a^a...(x times) = b (mod p), where a, b, and p are given.
+
+This was pretty challenging for me despite the vulnerability being simple. I solved it a few minutes before the CTF ended. I spent too much time chasing false leads, believing the solution to be of some sort of alternation between a-1, b-1, or p-1, because the three of those would sometimes work and I was trying to discover the pattern to get it to 100% work. In reality, that worked because of luck.
+
+In retrospect, I should have math/stackoverflowed this immediately, as I would have discovered this to be an application of Fermat's Little Theorem, which states that a^m (mod n) = a^(m*phi(n)) (mod(n)) if a and n are relatively prime. If m and n aren't relatively prime, I discovered the period in this problem (which may not be correct) to best be represented by p - 1.
+
+To speed the program, I changed sympy's totient to the Carmichael function (reduced_totient), lambda, where a^lambda = 1 (mod n). A research paper on this subject detailed that the tetrated discrete log period is always <= lambda(n) + 1, which was where I got the inspiration from. I could have also used dynamic programming but I was too lazy and this got the job done.
+

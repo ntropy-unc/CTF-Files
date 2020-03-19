@@ -1,0 +1,3 @@
+I wrote a server to play around with. Posting different JS types, {} works for bypassing the check.
+
+const {first, second} = req.body means first = "test" from POST {"first": "test"}
